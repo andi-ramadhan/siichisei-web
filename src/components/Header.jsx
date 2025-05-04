@@ -1,26 +1,48 @@
-const Header = ({ activeSection, setActiveSection }) => {
+import { NavLink, Link } from "react-router-dom";
+
+const Header = () => {
   return (
-    <header className="sticky top-0 z-50 bg-[#3c5966]">
-      <div className="flex flex-row justify-between items-center mx-auto py-8 px-25">
-        <h1 className="text-3xl text-gray-200">SiiChiSei Logo</h1>
+    <header className="sticky top-0 z-50 bg-gray-blue">
+      <div className="flex flex-row justify-between items-center mx-auto py-5 px-25">
+        <Link to="/" className="text-3xl text-gray-200">
+          SiiChiSei Logo
+        </Link>
         <nav className="flex flex-row gap-15 text-xl nav-link">
-          <a
-            href="#services"
-            className={activeSection === 'services' ? 'active' : ''}
-            onClick={() => setActiveSection('services')}
+          <NavLink to="/services"
+            className={({ isActive }) =>
+              isActive ? "active" : ""
+            }
           >
             Services
-          </a>
-          <a
-            href="#welcome"
-            className={activeSection === 'welcome' ? 'active' : ''}
-            onClick={() => setActiveSection('welcome')}
+          </NavLink>
+          <NavLink to="/academy"
+            className={({ isActive }) =>
+              isActive ? "active" : ""
+            }
           >
             Academy
-          </a>
-          <a href="#">FAQs</a>
-          <a href="#">Testimonials</a>
-          <a href="#">Contact</a>
+          </NavLink>
+          <NavLink to="/faqs"
+            className={({ isActive }) =>
+              isActive ? "active" : ""
+            }
+          >
+            FAQs
+          </NavLink>
+          <NavLink to="/testimonials"
+            className={({ isActive }) =>
+              isActive ? "active" : ""
+            }
+          >
+            Testimonials
+          </NavLink>
+          <NavLink to="/contact"
+            className={({ isActive }) =>
+              isActive ? "active" : ""
+            }
+          >
+            Contact
+          </NavLink>
         </nav>
       </div>
     </header>

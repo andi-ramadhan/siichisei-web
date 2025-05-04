@@ -11,7 +11,7 @@ const ServicesInsight = () => {
   };
 
   return (
-    <section id="services" className="w-full min-h-[60vh] bg-bg-base-orange font-inter my-20 relative overflow-hidden">
+    <section className="w-full min-h-[60vh] bg-bg-base-orange font-inter my-20 relative overflow-hidden">
       {/* BG Logo */}
       <div className="absolute inset-0 w-full h-full -top-8" aria-hidden="true">
         <img 
@@ -33,8 +33,8 @@ const ServicesInsight = () => {
           <div className="content-container bg-graybase rounded-lg p-5 shadow-lg hover:shadow-2xl transition-shadow ">
             <div className="w-full h-full flex flex-row gap-10 content-card p-5">
               <div className="flex flex-col items-center my-auto card-header text-4xl">
-                <p className="text-fit tracking-[0.065em]">SiiChiSei</p>
-                <p className="text-fit">Academy</p>
+                <p className="text-fit tracking-[0.08em]">SiiChiSei</p>
+                <p className="text-fit tracking-[0.02em]">Academy</p>
               </div>
               <p className="text-gray-700 text-md card-content max-w-[450px]">
                 Akademi vokal dari SiiChiSei dengan kurikulum up-to-date, komprehensif, 
@@ -55,9 +55,8 @@ const ServicesInsight = () => {
           <div className="content-container bg-graybase rounded-lg p-5 shadow-lg hover:shadow-2xl transition-shadow">
             <div className="w-full h-full flex flex-row gap-10 content-card p-5">
               <div className="flex flex-col items-center my-auto card-header text-4xl">
-                <p className="text-fit tracking-[0.065em]">SiiChiSei</p>
-                <p className="text-fit tracking-[0.14em]">Private</p>
-                <p className="text-fit tracking-[0.3em]">Class</p>
+                <p className="text-fit tracking-[0.08em]">SiiChiSei</p>
+                <p className="text-fit no-wrap text-2xl">Private Class</p>
               </div>
               <p className="text-gray-700 text-md card-content max-w-[450px]">
                 Fokus di materi-materi tertentu. Mentoring & challenge rutin membangun kedisiplinan di atas kokohnya 

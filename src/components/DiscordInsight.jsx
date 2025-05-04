@@ -1,4 +1,4 @@
-import ArrowRight from "./ChevronArrow";
+import { ArrowRight } from "./icons/ChevronArrow";
 
 const arrowRight = <ArrowRight className="w-7" />
 
