@@ -7,38 +7,63 @@ const Header = () => {
         <Link to="/" className="text-3xl text-gray-200">
           SiiChiSei Logo
         </Link>
-        <nav className="flex flex-row gap-15 text-xl nav-link">
+        <nav className="flex flex-row gap-15 text-xl">
           <NavLink to="/services"
             className={({ isActive }) =>
-              isActive ? "active" : ""
+              isActive ? "active nav-link" : "nav-link"
             }
           >
             Services
           </NavLink>
-          <NavLink to="/academy"
-            className={({ isActive }) =>
-              isActive ? "active" : ""
-            }
-          >
-            Academy
-          </NavLink>
+          {/* <div className="dropdown relative inline-block"> */}
+            <NavLink to="/academy"
+              className={({ isActive }) =>
+                isActive ? "active nav-link" : "nav-link"
+              }
+            >
+              Academy
+            </NavLink>
+            {/* <div className="dropdown-content absolute bg-gray-blue text-white min-w-40">
+              <NavLink to="/academy#1"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Academy 1
+              </NavLink>
+              <NavLink to="/academy"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Academy 2
+              </NavLink>
+              <NavLink to="/academy"
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
+                Academy 3
+              </NavLink>
+            </div>
+          </div> */}
           <NavLink to="/faqs"
             className={({ isActive }) =>
-              isActive ? "active" : ""
+              isActive ? "active nav-link" : "nav-link"
             }
           >
             FAQs
           </NavLink>
           <NavLink to="/testimonials"
             className={({ isActive }) =>
-              isActive ? "active" : ""
+              isActive ? "active nav-link" : "nav-link"
             }
           >
             Testimonials
           </NavLink>
           <NavLink to="/contact"
             className={({ isActive }) =>
-              isActive ? "active" : ""
+              isActive ? "active nav-link" : "nav-link"
             }
           >
             Contact

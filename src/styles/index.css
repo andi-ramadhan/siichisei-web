@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Slab:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-inter: 'Inter', sans-serif;
+  --font-roboto-slab: 'Roboto Slab', serif;
 
   --color-graybase: #ebeae5;
   --color-word-blue: #3990d8;
@@ -17,13 +18,13 @@
 }
 
 @layer components {
-  .nav-link a{
+  .nav-link{
     position: relative;
     text-decoration: none;
     color: white;
   }
 
-  .nav-link a::after {
+  .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
@@ -31,19 +32,19 @@
     bottom: -7px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #a77d31;
+    background-color: var(--color-bg-base-orange);
     opacity: 0;
     transition: width 0.1s ease-in-out,
                 opacity 0.1s ease-in-out;
   }
 
-  .nav-link a:hover::after,
-  .nav-link a.active::after {
+  .nav-link:hover::after,
+  .nav-link.active::after {
     width: 100%;
     opacity: 1;
   }
 
-  .nav-link a:hover::after {
+  .nav-link:hover::after {
     width: 100%;
     opacity: 1;
   }
@@ -160,11 +161,37 @@
       box-shadow: 0 15px 35px #b87700;
     }
   }
+
+  .dropdown-content {
+    box-shadow: 0 2px 5px #bbbbbb;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    border-radius: 0.5rem;
+
+    & a {
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: var(--color-word-soft-blue);
+        color: white;
+      }
+    }
+  }
+
+  .dropdown:hover .dropdown-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
 html{
   height: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 120px;
   overflow-x: hidden;
 }
