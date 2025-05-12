@@ -9,20 +9,6 @@ const TestimonialsPage = () => {
   const handleScroll = () => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
-
-    // const scrollWidth = scrollContainer.scrollWidth;
-    // const scrollLeft = scrollContainer.scrollLeft;
-    // const containerWidth = scrollContainer.offsetWidth;
-
-    // // reset to the start of the duplicated content when it comes to an end of scrolling 
-    // if (scrollLeft >= scrollWidth - containerWidth) {
-    //   scrollContainer.scrollLeft = scrollLeft - scrollWidth / 2;
-    // }
-
-    // // reset to the end of the duplicated content if scrolled to the beginning
-    // if (scrollLeft <= 0) {
-    //   scrollContainer.scrollLeft = scrollLeft + scrollWidth / 2;
-    // }
   };
 
   useEffect(() => {
@@ -56,19 +42,6 @@ const TestimonialsPage = () => {
                 setAnyCardClicked={setAnyCardClicked}
               />
             ))}
-            {/* duplicate
-            {testimonialData.map((data, index) => (
-              <Card 
-                key={`duplicate-${index}`} 
-                className="flex-shrink-0"
-                studentMessage={data.studentMessage}
-                studentName={data.studentName}
-                studentTitle={data.studentTitle}
-                imgSrc={data.imgSrc}
-                isAnyCardClicked={isAnyCardClicked}
-                setAnyCardClicked={setAnyCardClicked}
-              />
-            ))} */}
           </div>
         </div>
       </div>
