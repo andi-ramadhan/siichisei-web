@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import AccordionPanel from "../components/accordionPanel";
+import AccordionPanel from "../components/AccordionPanel";
 import { accordionData } from "../utils/faqsData";
 import Footer from "../components/Footer";
 import ToTopBtn from "../components/ToTopBtn";
