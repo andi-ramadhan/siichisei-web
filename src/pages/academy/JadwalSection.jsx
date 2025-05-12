@@ -5,11 +5,11 @@ const JadwalSection = () => {
   useCaruosel('[data-carousel-wrapper]', '[data-carousel-prev]', '[data-carousel-next]');
   return (
     <div id="jadwal-section" className="container w-9/10 pt-10 pb-20 px-30  flex flex-col bg-word-orange rounded-b-lg">
-      <h3 className="pt-5 text-center uppercase text-3xl font-semibold tracking-wider leading-9">
-        Jadwal Program <br /> Batch 3
+      <h3 className="pt-15 text-left uppercase text-3xl font-semibold tracking-wider leading-9">
+        Jadwal Program: Batch 3
       </h3>
 
-      <div id="indicators-carousel" className="relative w-full overflow-hidden" data-carousel="static">
+      <div id="indicators-carousel" className="relative w-full overflow-hidden h-full" data-carousel="static">
           {/* <!-- Carousel wrapper --> */}
           <div className="flex transition-transform duration-700 ease-in-out" data-carousel-wrapper>
               {/* <!-- Item 1 --> */}

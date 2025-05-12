@@ -90,7 +90,7 @@ const AcademyClass = () => {
                       <ol className="flex flex-col pl-5 gap-2 list-disc">
                         <li>SiiChiSei Academy Batch 1: Komponen Anatomi Vokal (3 bulan)</li>
                         <li>SiiChiSei Academy Batch 2: Register Vokal (3 bulan)</li>
-                        <li>SiiChiSei Academy Batch 3: Vibrato (3 bulan) - In Process</li>
+                        <li className="text-word-orange font-semibold">SiiChiSei Academy Batch 3: Vibrato (3 bulan) - On Going</li>
                       </ol>
                     </p>
                     <p className="font-semibold text-2xl">Available Academy Class:</p>
@@ -106,13 +106,13 @@ const AcademyClass = () => {
                 <div className="px-30">
                   <div className="flex flex-row gap-10 h-[50vh] justify-center items-center text-lg text-gray-800">
                     
-                    <div className="card flex flex-col h-full w-[60dvh] rounded-xl p-10 transition-all duration-300 hover:scale-102">
-                      <p className="text-2xl font-semibold uppercase mb-10">Monthly</p>
+                    <div className="card flex flex-col h-full w-[60dvh] rounded-xl p-10 transition-all bg-word-orange duration-300 hover:scale-102">
+                      <p className="text-2xl font-semibold uppercase mb-10 text-gray-blue">Monthly</p>
                       <h4 className="mb-5">
                         <span className="text-4xl">IDR 200.000</span>/month
                       </h4>
                       <button 
-                        className={`bg-word-blue hover:bg-dark-blue transition-all duration-200 text-white rounded-md py-2 cursor-pointer font-semibold
+                        className={`bg-gray-blue hover:bg-dark-blue transition-all duration-200 text-white rounded-md py-2 cursor-pointer font-semibold
                                   ${clickedButton === 'contact-private-class' ? 'scale-98' : ''}`}
                         onClick={() => handleClick('contact-private-class')}
                       >
@@ -122,19 +122,19 @@ const AcademyClass = () => {
                         <p><span className="text-xl">Benefit</span></p>
                         <ul className="flex flex-col gap-2">
                           <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-blue" />
+                            <CheckIcon className="w-6 h-6 text-gray-blue" />
                             Kelas 4x pertemuan
                           </li>
                           <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-blue" />
+                            <CheckIcon className="w-6 h-6 text-gray-blue" />
                             Mentoring 24x pertemuan
                           </li>
                           <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-blue" />
+                            <CheckIcon className="w-6 h-6 text-gray-blue" />
                             Free konsultasi selama berada di kelas
                           </li>
                           <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-blue" />
+                            <CheckIcon className="w-6 h-6 text-gray-blue" />
                             File PPT materi
                           </li>
                         </ul>
@@ -147,7 +147,7 @@ const AcademyClass = () => {
                         IDR 550.000
                       </h4>
                       <button 
-                        className={`bg-word-orange text-white rounded-md py-2 cursor-pointer font-semibold
+                        className={`bg-word-orange text-black rounded-md py-2 cursor-pointer font-semibold
                                     hover:bg-bg-base-orange transition-all duration-200
                                     ${clickedButton === 'contact-academy' ? 'scale-98' : ''}`}
                          onClick={() => handleClick('contact-academy')}

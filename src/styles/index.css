@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+DK+Loopet:wght@100..400&family=Roboto+Slab:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-inter: 'Inter', sans-serif;
   --font-roboto-slab: 'Roboto Slab', serif;
+  --font-playwrite: "Playwrite DK Loopet", cursive;
 
   --color-graybase: #ebeae5;
   --color-word-blue: #3990d8;
@@ -125,7 +126,8 @@
   .bottom-container {
     text-transform: uppercase;
 
-    & a {
+    & button {
+      text-transform: uppercase;
       padding-inline: 1rem;
       padding-block: 0.5rem;
       border-radius: 5px;
@@ -133,7 +135,7 @@
                   color 0.3s ease-in-out;
     }
 
-    & a:hover {
+    & button:hover {
       background-color: var(--color-bg-base-orange);
       color: rgb(53, 52, 52);
     }
@@ -145,20 +147,6 @@
 
     &:hover {
       box-shadow: 0px 10px 20px #8a8b96;
-    }
-  }
-
-  .card {
-    box-shadow: 0 5px 10px #c2c3d3;
-    &:hover {
-      box-shadow: 0 15px 25px #878ef3;
-    }
-  }
-
-  .card2 {
-    box-shadow: 0 5px 10px #a77d31;
-    &:hover {
-      box-shadow: 0 15px 35px #b87700;
     }
   }
 
@@ -186,6 +174,66 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .accordion-container {
+    & p {
+      padding-top: 2px;
+      padding-bottom: 5px;
+    }
+
+    & ul {
+      border-bottom: 1px solid gray;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      line-height: 1.7rem;
+    }
+  } 
+
+  .accordion-panel {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .custom-scroll-bar {
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: rgb(199, 198, 198);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray-blue);
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: black;
+    }
+  }
+
+  blockquote {
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: rgb(199, 198, 198);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray-blue);
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: black;
+    }
+  }
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 

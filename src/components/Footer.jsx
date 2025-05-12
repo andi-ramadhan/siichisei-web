@@ -1,4 +1,9 @@
 const Footer = () => {
+  function topFunc() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   return (
     <footer className="min-h-[50vh] w-full mx-auto font-inter bg-[#3c5966] relative overflow-hidden">
       <div className="relative z-10 h-full flex flex-col justify-between py-10">
@@ -15,9 +20,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom container */}
-        <div className="bottom-container flex flex-row justify-between items-center px-20 py-5 mt-auto text-gray-200">
+        <div className="bottom-container flex flex-row justify-between items-center px-20 py-5 mt-auto text-gray-200 font-inter">
           <p className="text-lg font-medium">SiiChiSei Text Logo</p>
-          <a href="#welcome" className="absolute left-1/2 -translate-x-1/2">Back To Top</a>
           <div className="flex flex-col text-right">
             <p className="text-gray-300">&copy;2025 SiiChiSei &mdash; All rights reserved</p>
             <p className="italic font-medium tracking-wider">SiiChiSei &mdash; Your Vocal Journey Companion</p>
