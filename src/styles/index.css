@@ -226,6 +226,14 @@
       background-color: black;
     }
   }
+  
+  ::placeholder {
+    color: var(--color-gray-blue);
+  }
+
+  ::-ms-input-placeholder {
+    color: var(--color-gray-blue);
+  }
 }
 
 @keyframes scroll-infinite {
