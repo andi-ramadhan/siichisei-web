@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const ContactPage = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -69,6 +71,7 @@ const ContactPage = () => {
           <div className="flex flex-col justify-center items-center gap-2">
             <h2 className="text-6xl text-word-orange font-playwrite">Contact Us!</h2>
             <p className="italic text-word-white-orange">You can directly message us on our social media</p>
+            <FontAwesomeIcon icon="fa-brands fa-instagram" />
           </div>
           
         </div>
