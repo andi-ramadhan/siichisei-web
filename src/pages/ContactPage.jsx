@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
-const serviceID = import.meta.env.VITE_SERVICE_ID;
-const templateID = import.meta.env.VITE_TEMPLATE_ID;
-const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
 const ContactPage = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -22,24 +18,27 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsClicked(true);
 
-    emailjs
-      .send(serviceID, templateID, formData, publicKey)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setStatus('Message sent successfully!');
-      })
-      .catch((error) => {
-        console.error('FAILED...', error);
-        setStatus('Failed to send message. Please try again.');
-      })
-      .finally(() => {
-        setIsClicked(false);
-        setFormData({ name: '', email: '', message: '', }); //reset
-      });
+    const res = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
+
+    if (res.ok) {
+      alert('Message sent!')
+    } else {
+      alert('Error sending message.');
+    }
   };
 
   useEffect(() => {
