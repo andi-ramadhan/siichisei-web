@@ -13,6 +13,9 @@ node_modules
 .env
 /src/.env
 
+/dist
+/dist/index.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

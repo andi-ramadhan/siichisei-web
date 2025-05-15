@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -22,22 +23,35 @@ const ContactPage = () => {
     e.preventDefault();
     setIsClicked(true);
 
-    const res = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-      }),
-    });
+    const form = e.target;
+    const botField = form.bot_field.value;
 
-    if (res.ok) {
-      alert('Message sent!')
-    } else {
-      alert('Error sending message.');
+    //bot check: if honeypot is filled, silently block
+    if (botField) {
+      console.warn('Bot submission detected. Ignored.');
+      setIsClicked(false);
+      return;
+    }
+
+    // add a small delay
+    await new Promise((resolve) => setTimeout(resolve, 5000)); //5 seconds
+
+    try {
+      await emailjs.send(
+        'service_npzpm2p',
+        'template_txizw0m',
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        'WlYzS4nt-5rkBbgb9' // public key
+      );
+      alert('Message sent!');
+    } catch (err) {
+      alert('Error sending message: ' + err.message);
+    } finally {
+      setIsClicked(false);
     }
   };
 
@@ -59,6 +73,12 @@ const ContactPage = () => {
           
           <div className="flex flex-col gap-2 w-1/2">
             <form className="space-y-6 py-4" onSubmit={handleSubmit}>
+              <input 
+                type="text"
+                name="bot_field"
+                style={{ display: 'none' }}
+                tabIndex={-1}
+              />
               <input 
                 type="text" 
                 id="name"
