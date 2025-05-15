@@ -4,7 +4,7 @@ import useCaruosel from "../../hooks/useCarousel";
 const JadwalSection = () => {
   useCaruosel('[data-carousel-wrapper]', '[data-carousel-prev]', '[data-carousel-next]');
   return (
-    <div id="jadwal-section" className="container w-9/10 pt-10 pb-20 px-30 h-full flex flex-col bg-word-orange rounded-b-lg">
+    <div id="jadwal-section" className="w-9/10 pt-10 pb-20 px-30 h-full flex flex-col bg-word-orange rounded-b-lg">
       <h3 className="pt-15 -mb-10 text-left uppercase text-3xl font-semibold tracking-wider leading-9">
         Jadwal Program: Batch 3
       </h3>
