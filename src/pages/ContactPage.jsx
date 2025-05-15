@@ -1,14 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
+const serviceID = import.meta.env.VITE_SERVICE_ID;
+const templateID = import.meta.env.VITE_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
 const ContactPage = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [status, setStatus] = useState("");
 
-  const handleClick = () => {
-    setIsClicked(true);
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 50);
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      time: new Date(),
+      [id]: value,
+    }));
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsClicked(true);
+
+    emailjs
+      .send(serviceID, templateID, formData, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setStatus('Message sent successfully!');
+      })
+      .catch((error) => {
+        console.error('FAILED...', error);
+        setStatus('Failed to send message. Please try again.');
+      })
+      .finally(() => {
+        setIsClicked(false);
+        setFormData({ name: '', email: '', message: '', }); //reset
+      });
+  };
+
+  useEffect(() => {
+    if (status) {
+      window.alert(status);
+    }
+  }, [status]);
 
   return(
     <main className="w-full h-full font-inter">
@@ -20,40 +58,43 @@ const ContactPage = () => {
             <p className="text-gray-blue w-[50dvh] leading-relaxed text-md">We accept any question or feedback from you! You also can directly message us on our social media.</p>
           </div>
           
-          <div className="flex flex-col gap-2">
-            <form className="space-y-6 py-4">
-              <>
-                <input 
-                  type="text" 
-                  id="urName"
-                  placeholder="Your name" 
-                  className="w-full px-2 py-3 rounded-md bg-gray-100/50 border-2 border-gray-blue/20 text-[#2a3e47] focus:outline-none focus:ring-2 focus:ring-word-orange"
-                />
-              </>
-              <>
-                <input 
-                  type="email" 
-                  id="email"
-                  placeholder="Email address"
-                  className="w-full px-2 py-3 rounded-md text-[#2a3e47] bg-gray-100/50 border-2 border-gray-blue/20 focus:outline-none focus:ring-2 focus:ring-word-orange"
-                />
-              </>
-              <div>
-                <textarea 
-                  id="message"
-                  placeholder="Your messages"
-                  rows="4"
-                  className="w-full px-2 py-1 rounded-md text-[#2a3e47] bg-gray-100/50 border-2 border-gray-blue/20 focus:outline-none focus:ring-2 focus:ring-word-orange"
-                />
-              </div>
+          <div className="flex flex-col gap-2 w-1/2">
+            <form className="space-y-6 py-4" onSubmit={handleSubmit}>
+              <input 
+                type="text" 
+                id="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-2 py-3 rounded-md bg-gray-100/50 border-2 border-gray-blue/20 text-[#2a3e47] focus:outline-none focus:ring-2 focus:ring-word-orange"
+                required
+              />
+              <input 
+                type="email" 
+                id="email"
+                placeholder="Email address"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-2 py-3 rounded-md text-[#2a3e47] bg-gray-100/50 border-2 border-gray-blue/20 focus:outline-none focus:ring-2 focus:ring-word-orange"
+                required
+              />
+              <textarea 
+                id="message"
+                placeholder="Your messages"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full px-2 py-1 rounded-md text-[#2a3e47] bg-gray-100/50 border-2 border-gray-blue/20 focus:outline-none focus:ring-2 focus:ring-word-orange"
+                required
+              />
               <button
                 type="submit"
                 className={`submit-btn cursor-pointer bg-word-blue/70 text-white rounded-2xl shadow-xl px-6 py-2
                   hover:bg-word-blue transition-all duration-200 ease-in-out
                   ${isClicked ? 'scale-95' : ''}`}
-                onClick={handleClick}
+                disabled={isClicked}
               >
-                Send Message
+                {isClicked ? "Sending...": "Send Message"}
               </button>
             </form>
           </div>
