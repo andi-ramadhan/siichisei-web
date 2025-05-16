@@ -96,27 +96,6 @@
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
   }
-  
-
-  .link-map-section {
-    & > h2 {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-
-    & a {
-      padding-inline: 1rem;
-      padding-block: 0.5rem;
-      border-radius: 5px;
-      transition: background-color 0.3s ease-in-out,
-                  color 0.3s ease-in-out;
-    }
-
-    & a:hover {
-      background-color: var(--color-bg-base-orange);
-      color: rgb(53, 52, 52);
-    }
-  }
 
   .link-section {
     text-transform: uppercase;
@@ -233,6 +212,20 @@
 
   ::-ms-input-placeholder {
     color: var(--color-gray-blue);
+  }
+
+  .social-media-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-gray-blue);
+    border-radius: 100%;
+    padding: 1rem;
+
+    & span {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 }
 
