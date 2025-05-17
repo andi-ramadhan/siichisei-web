@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 bg-gray-blue">
+    <header className="sticky top-0 z-[9999] bg-gray-blue">
       <div className="flex flex-row justify-between items-center mx-auto py-5 px-25">
         <Link to="/" className="text-3xl text-gray-200">
           SiiChiSei Logo
