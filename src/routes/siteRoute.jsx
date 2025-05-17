@@ -14,8 +14,15 @@ const SiteRoute = () => {
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/services' element={<ServicePage />}>
-        <Route path="private-class" element={<PrivateClass />} />
-        <Route path="academy-class" element={<AcademyClass />} />
+        <Route path="private-class" element={<PrivateClass />} >
+          <Route path="#konsultasi" element={<PrivateClass />} />
+          <Route path="#mentoring" element={<PrivateClass />} />
+          <Route path="#sertifikat" element={<PrivateClass />} />
+        </Route>
+        <Route path="academy-class" element={<AcademyClass />}>
+          <Route path="#class-status" element={<AcademyClass />} />
+          <Route path="#prices" element={<AcademyClass />} />
+        </Route>
       </Route>
       <Route path='/academy' element={<AcademyPage />}/>
       <Route path='/faqs' element={<FAQsPage />}/>
