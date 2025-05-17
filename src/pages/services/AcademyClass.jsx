@@ -1,34 +1,41 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CloseIcon from "../../components/icons/CloseIcon";
 import CheckIcon from "../../components/icons/CheckIcon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ClassIcon from "../../components/icons/ClassIcon";
+import { Link } from "react-router-dom";
 
 const AcademyClass = () => {
-  const [clickedButton, setClickedButton] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
 
   const navigate = useNavigate();
+  const idLocation = useLocation();
 
   const handleClose = () => {
     navigate('/services');
   };
 
-  const handleClick = (buttonId) => {
-    setClickedButton(buttonId);
-    setTimeout(() => {
-      setClickedButton(null);
-    }, 200);
+  const handleShowPopup = (e) => {
+    e.preventDefault();
+    setShowPopup(true);
+    setTimeout(() => setPopupVisible(true), 10); //trigger animation after mount
   };
 
-  const scrollJS = (value) => {
-    return (e) => {
-      e.preventDefault();
-      const targetElement = document.getElementById(value);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    };
+  const handleHidePopup = () => {
+    setPopupVisible(false);
+    setTimeout(() => setShowPopup(false), 200); // match transition duration
   };
+
+  useEffect(() => {
+    if (idLocation.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [idLocation]);
 
   return(
     <section 
@@ -59,20 +66,20 @@ const AcademyClass = () => {
             {/* SIDEBAR */}
             <aside className="sticky top-0 left-0 w-1/7 flex flex-col gap-7 text-md text-gray-800 px-5 justify-start pt-10">
               <div className="flex flex-col gap-4 text-white uppercase">
-                <a
-                  href="#class-status"
-                  onClick={scrollJS('class-status')}
+                <Link
+                  to="/services/academy-class#class-status"
+                  // onClick={scrollJS('class-status')}
                   className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
                 >
                   Class Status
-                </a>
-                <a 
-                  href="#prices" 
-                  onClick={scrollJS('prices')}
+                </Link>
+                <Link 
+                  to="/services/academy-class#prices" 
+                  // onClick={scrollJS('prices')}
                   className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
                 >
                   Prices
-                </a>
+                </Link>
               </div>
             </aside>
 
@@ -111,13 +118,13 @@ const AcademyClass = () => {
                       <h4 className="mb-5">
                         <span className="text-4xl">IDR 200.000</span>/month
                       </h4>
-                      <button 
-                        className={`bg-gray-blue hover:bg-dark-blue transition-all duration-200 text-white rounded-md py-2 cursor-pointer font-semibold
-                                  ${clickedButton === 'contact-private-class' ? 'scale-98' : ''}`}
-                        onClick={() => handleClick('contact-private-class')}
+                      <button
+                        onClick={handleShowPopup}
+                        className=" text-center bg-gray-blue hover:bg-dark-blue transition-all duration-200 text-white rounded-md py-2 cursor-pointer font-semibold"
                       >
                           Contact us
                       </button>
+
                       <div className="my-5 flex flex-col gap-4">
                         <p><span className="text-xl">Benefit</span></p>
                         <ul className="flex flex-col gap-2">
@@ -146,11 +153,10 @@ const AcademyClass = () => {
                       <h4 className="mb-5 text-word-white-orange text-4xl">
                         IDR 550.000
                       </h4>
-                      <button 
-                        className={`bg-word-orange text-black rounded-md py-2 cursor-pointer font-semibold
-                                    hover:bg-bg-base-orange transition-all duration-200
-                                    ${clickedButton === 'contact-academy' ? 'scale-98' : ''}`}
-                         onClick={() => handleClick('contact-academy')}
+                      <button
+                        onClick={handleShowPopup} 
+                        className="bg-word-orange text-black rounded-md py-2 cursor-pointer font-semibold
+                                    hover:bg-bg-base-orange transition-all duration-200"
                       >
                         Contact us
                       </button>
@@ -176,7 +182,39 @@ const AcademyClass = () => {
                         </ul>
                       </div>
                     </div>
-                  
+
+                    {/* POPUP */}
+                    {showPopup && (
+                      <div 
+                        id="popup" 
+                        className="fixed top-0 bottom-0 right-0 bg-black/30 w-full flex justify-center items-center z-70 font-inter"
+                        onClick={handleHidePopup}
+                      >
+                        <div 
+                          className={`
+                            w-[30%] bg-white rounded-lg p-8 text-gray-blue
+                            transition-all duration-200
+                            ${popupVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}
+                          `}
+                          onClick={e => e.stopPropagation()}
+                        >
+                          <span className="flex justify-between items-center pb-3">
+                            <h2 className="text-2xl font-semibold text-word-blue">Mohon Maaf</h2>
+                            <button 
+                              className="text-3xl font-extrabold hover:text-word-blue transition-colors duration-200 cursor-pointer"
+                              onClick={handleHidePopup}
+                              aria-label="Close"
+                            >
+                              &times;
+                            </button>
+                          </span>
+                          <p className="leading-relaxed text-pretty">
+                            Mohon maaf, pendaftaran siswa baru SiiChiSei Academy belum dibuka kembali.
+                            Silahkan kunjungi media sosial SiiChiSei untuk informasi lebih lanjut!
+                          </p>
+                        </div>
+                      </div>
+                    )}                  
                   </div>
                 </div>
               </div>
