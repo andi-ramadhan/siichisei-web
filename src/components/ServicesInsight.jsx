@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ServicesInsight = () => {
   const [clickedButton, setClickedButton] = useState(null);
@@ -11,17 +12,17 @@ const ServicesInsight = () => {
   };
 
   return (
-    <section className="w-full min-h-[60vh] bg-bg-base-orange font-inter my-20 relative overflow-hidden">
+    <section className="w-full min-h-[60vh] bg-bg-base-orange font-inter mt-10 relative overflow-hidden">
       {/* BG Logo */}
-      <div className="absolute inset-0 w-full h-full -top-8" aria-hidden="true">
+      <div className="absolute inset-0 w-full h-full -top-10" aria-hidden="true">
         <img 
-          src="/logo-png.png"
-          className="absolute w-[40rem] -left-1/5 opacity-50"
+          src="/logo-black.png"
+          className="absolute w-[40rem] -left-1/5 opacity-20"
           alt="Background Logo"
         />
         <img 
-          src="/logo-png.png"
-          className="absolute w-[40rem] -right-1/5 opacity-50"
+          src="/logo-black.png"
+          className="absolute w-[40rem] -right-1/5 opacity-20"
           alt="Background Logo"
         />
       </div>
@@ -41,13 +42,15 @@ const ServicesInsight = () => {
                 mentoring serta challenge sesuai kebutuhan siswa, dan pembelajaran 
                 intensif selama 3 bulan
               </p>
-              <button className={`content-btn text-md rounded bg-[#3990d8] hover:bg-[#317bb8] text-white 
-              w-25 h-25 text-wrap
-              ${clickedButton === 'academy' ? 'scale-95' : ''}`}
-              onClick={() => handleClick('academy')}
-              >
-                Learn More
-              </button>
+              <Link to='/services/academy-class'>
+                <button className={`content-btn text-md rounded bg-[#3990d8] hover:bg-[#317bb8] text-white 
+                w-25 h-25 text-wrap
+                ${clickedButton === 'academy' ? 'scale-95' : ''}`}
+                onClick={() => handleClick('academy')}
+                >
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -62,13 +65,12 @@ const ServicesInsight = () => {
                 Fokus di materi-materi tertentu. Mentoring & challenge rutin membangun kedisiplinan di atas kokohnya 
                 fondasi pembelajaranmu.
               </p>
-              <button className={`content-btn text-md rounded bg-[#3990d8] hover:bg-[#317bb8] text-white 
-              w-25 h-25 text-wrap
-              ${clickedButton === 'privateClass' ? 'scale-95' : ''}`}
-              onClick={() => handleClick('privateClass')}
-              >
-                Learn More
-            </button>
+              <Link to='/services/private-class'>
+                <button className='content-btn text-md rounded bg-[#3990d8] hover:bg-[#317bb8] text-white w-25 h-25 text-wrap'
+                >
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
