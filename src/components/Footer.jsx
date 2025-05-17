@@ -1,8 +1,16 @@
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
 
+  function toTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   return (
-    <footer className="min-h-[35vh] w-full font-inter flex flex-col justify-between py-10 px-40 shadow-[0_-20px_10px_bg-gray-blue]">
-      <div className="z-10 h-full flex flex-row justify-between gap-10 mb-8">
+    <footer className="min-h-[35vh] w-full font-inter flex flex-col justify-between py-10 px-40">
+      <div className="z-10 h-full flex flex-row justify-between gap-10 my-8">
         {/* first container */}
         <div className="flex flex-col text-gray-blue grow-2 gap-1">
           <h2 className="text-3xl font-semibold text-word-blue">SiiChiSei Text Logo</h2>
@@ -10,34 +18,37 @@ const Footer = () => {
         </div>
 
         {/* middle container */}
-        <div className="flex flex-row gap-10 text-gray-blue/80 tracking-wide justify-around grow-2 text-lg">
-          <div className="flex flex-col gap-8">
+        <div className="flex flex-row gap-10 text-gray-blue/80 tracking-wide justify-around grow-2 text-md">
+          <Link to="/" className="font-semibold text-word-blue" onClick={toTop}>
+            Home
+          </Link>
+          <nav className="flex flex-col gap-8">
             <ul className="flex flex-col gap-2">
-              <p className="font-semibold text-word-blue">Private Class</p>
-              <li>Konsultasi</li>
-              <li>Mentoring</li>
-              <li>Sertifikat</li>
+              <NavLink to='/services' className="font-semibold text-word-blue">Private Class</NavLink>
+              <li><NavLink to='/services/private-class#konsultasi'>Konsultasi</NavLink></li>
+              <li><NavLink to='/services/private-class#mentoring'>Mentoring</NavLink></li>
+              <li><NavLink to='/services/private-class#sertifikat'>Sertifikat</NavLink></li>
             </ul>
-          </div>
+          </nav>
           <ul className="flex flex-col gap-2">
-            <p className="font-semibold text-word-blue">Academy Class</p>
-            <li>Status Kelas</li>
-            <li>Harga</li>
+            <NavLink to='/services' className="font-semibold text-word-blue">Academy Class</NavLink>
+            <li><NavLink to='/services/academy-class#class-status'>Status Kelas</NavLink></li>
+            <li><NavLink to='/services/academy-class#prices'>Harga</NavLink></li>
           </ul>
           <ul className="flex flex-col gap-2">
-            <p className="font-semibold text-word-blue">FAQs</p>
-            <li>Cari Pertanyaan</li>
+            <NavLink to='/faqs' className="font-semibold text-word-blue">FAQs</NavLink>
+            <li><NavLink to='/faqs'>Cari Pertanyaan</NavLink></li>
           </ul>
           <ul className="flex flex-col gap-2">
-            <p className="font-semibold text-word-blue">Testimonials</p>
-            <li className="text-wrap">Testimoni Siswa <br/>SiiChiSei Academy</li>
+            <NavLink to='/testimonials' className="font-semibold text-word-blue">Testimonials</NavLink>
+            <li className="text-wrap"><NavLink to='/testimonials'>Testimoni Siswa <br/>SiiChiSei Academy</NavLink></li>
           </ul>
-          <p className="font-semibold text-word-blue">Contact</p>
+          <NavLink to='/contact' className="font-semibold text-word-blue">Contact</NavLink>
         </div>
       </div>
       {/* bottom container */}
-      <div className="text-gray-500 flex flex-col justify-center items-center border-t-1 pt-20">
-        <div className="flex gap-3 py-5">
+      <div className="text-gray-500 flex flex-col justify-center items-center border-t-1">
+        <div className="social-media-container flex gap-3 py-20">
           <div className="social-media-icon">
             <span>
               <svg 
@@ -108,7 +119,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <p>&copy; 2025 &mdash; SiiChiSei Vocal Course</p>
+        <p>Copyright &copy; 2025 &mdash; SiiChiSei Vocal Course. All rights reserved.</p>
       </div>
     </footer>
   )
