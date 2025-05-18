@@ -18,14 +18,14 @@ const ServiceCard = ({ img, imgAlt, title, content, navLinkTo, buttonId }) => {
           <img 
             src={img}
             alt={imgAlt}
-            className="h-full"
+            className="h-full w-full object-cover"
           />
         </div>
 
         <div className="flex flex-col flex-grow">
           <div className="content flex flex-col items-center justify-center mt-5">
             <h2 className="text-center text-4xl mt-5 text-word-blue">{title}</h2>
-            <p className="my-8 max-w-[550px] text-justify text-gray-700 leading-7">
+            <p className="my-8 max-w-[550px] text-center text-gray-700 leading-8 text-balance">
               {content}
             </p>
           </div>
