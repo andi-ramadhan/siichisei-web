@@ -178,6 +178,7 @@
 
   .custom-scroll-bar {
     overflow-x: scroll;
+    scrollbar-width: none;
 
     &::-webkit-scrollbar {
       height: 8px;
@@ -195,19 +196,26 @@
   }
 
   blockquote {
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-blue) transparent;
+
+    /* WebKit (Chrome, Safari, Edge) */
     &::-webkit-scrollbar {
-      width: 3px;
+      width: 6px;
     }
-    &::-webkit-scrollbar-track {
-      background-color: rgb(199, 198, 198);
-    }
+
     &::-webkit-scrollbar-thumb {
       background-color: var(--color-gray-blue);
+      border-radius: 6px;
     }
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: black;
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
     }
   }
+
+
   
   ::placeholder {
     color: var(--color-gray-blue);
