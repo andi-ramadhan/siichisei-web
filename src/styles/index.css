@@ -8,8 +8,11 @@
 
   --color-graybase: #ebeae5;
   --color-word-blue: #3990d8;
+  --color-word-blue-darker: #2a6ba0;
   --color-word-soft-blue: #5fadec;
+  --color-word-light-orange: #ffda61;
   --color-word-orange: #ffbf47;
+  --color-word-orange-darker: #d49f3b;
   --color-word-white-orange: #f8e6c4;
   --color-dark-blue: #266192;
   --color-bg-base-orange: #e6ac42;
@@ -90,7 +93,7 @@
   }
 
   .content-btn{
-    margin-block: auto;
+    margin: auto;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -218,13 +221,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-gray-blue);
+    border: 1px solid var(--color-word-white-orange);
     border-radius: 100%;
     padding: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease-in;
 
-    & span {
+    & a {
       width: 2rem;
       height: 2rem;
+    }
+
+    &:hover {
+      background-color: var(--color-word-orange-darker);
+    }
+  }
+
+  .footer-links {
+    & nav {
+      
+      & ul > li {
+        color: var(--color-word-white-orange);
+
+        &:hover {
+          color: var(--color-word-light-orange);
+        }
+      }
+    }
+  }
+
+  .orange-footer-link {
+    font-weight: 600;
+    color: var(--color-word-orange);
+
+    &:hover {
+      color: var(--color-word-orange-darker);
     }
   }
 }

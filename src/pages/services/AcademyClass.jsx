@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import CloseIcon from "../../components/icons/CloseIcon";
 import CheckIcon from "../../components/icons/CheckIcon";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ClassIcon from "../../components/icons/ClassIcon";
 import { Link } from "react-router-dom";
 
@@ -11,6 +11,7 @@ const AcademyClass = () => {
 
   const navigate = useNavigate();
   const idLocation = useLocation();
+  const contentRef = useRef(null);
 
   const handleClose = () => {
     navigate('/services');
@@ -28,11 +29,15 @@ const AcademyClass = () => {
   };
 
   useEffect(() => {
-    if (idLocation.hash) {
+    if (idLocation.hash && contentRef.current) {
       const id = location.hash.replace('#', '');
       const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (element && contentRef.current) {
+        // scroll only inside the content area
+        contentRef.current.scrollTo({
+          top: element.offsetTop,
+          behavior: 'smooth'
+        });
       }
     }
   }, [idLocation]);
@@ -68,14 +73,12 @@ const AcademyClass = () => {
               <div className="flex flex-col gap-4 text-white uppercase">
                 <Link
                   to="/services/academy-class#class-status"
-                  // onClick={scrollJS('class-status')}
                   className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
                 >
                   Class Status
                 </Link>
                 <Link 
-                  to="/services/academy-class#prices" 
-                  // onClick={scrollJS('prices')}
+                  to="/services/academy-class#prices"
                   className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
                 >
                   Prices
@@ -84,7 +87,7 @@ const AcademyClass = () => {
             </aside>
 
             {/* CONTENTS */}
-            <div className="flex flex-col gap-35 w-6/7 overflow-y-auto">
+            <div ref={contentRef} className="flex flex-col gap-35 w-6/7 overflow-y-auto">
 
               {/* CONTENT 1 */}
               <div id="class-status" className="flex flex-col gap-2 h-full py-50 w-full justify-center bg-gray-blue">

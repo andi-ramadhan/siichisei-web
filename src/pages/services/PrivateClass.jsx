@@ -21,12 +21,12 @@ useEffect(() => {
     const id = location.hash.replace('#', '');
     const element = document.getElementById(id);
     if (element && contentRef.current) {
-        // Scroll only inside the content area, not the whole page
-        contentRef.current.scrollTo({
-          top: element.offsetTop,
-          behavior: 'smooth'
-        });
-      }
+      // Scroll only inside the content area, not the whole page
+      contentRef.current.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
+      });
+    }
   }
 }, [idLocation]);
 
