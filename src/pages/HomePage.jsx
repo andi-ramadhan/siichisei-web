@@ -7,14 +7,16 @@ import Welcome from "../components/Welcome";
 
 const HomePage = () => {
   return(
-    <main className='w-full'>
-      <ToTopBtn />
-      <Welcome />
-      <Insight />
-      <DiscordInsight />
-      <ServicesInsight />
+    <>
+      <main className='w-full'>
+        <ToTopBtn />
+        <Welcome />
+        <Insight />
+        <DiscordInsight />
+        <ServicesInsight />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 

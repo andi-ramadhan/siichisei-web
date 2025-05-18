@@ -1,20 +1,20 @@
-import { useState } from "react";
-import Background from "./Background";
+import { useCallback } from "react";
 
 const Welcome = () => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = () => {
-    setIsClicked(true);
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 200);
-  };
+  const handleLearnMore = useCallback(() => {
+    const insightSection = document.getElementById('insight');
+    if (insightSection) {
+      insightSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
 
   return (
     <main id="welcome" className="bg-white relative">
       <div className="flex flex-col justify-center items-center text-center overflow-hidden font-inter">
-        <Background />
+        <img
+          className="bg-cover h-full w-full relative" 
+          src={'bg-cutted.jpg'}
+        />
         <div className="absolute top-25">
           <img
             className="size-100 mx-auto" 
@@ -26,9 +26,9 @@ const Welcome = () => {
           <p className="text-2xl text-gray-600 font-light">
             SiiChiSei is your Vocal Journey companion,
             dedicated to assisting you with Technical Voice Lessons,<br />no matter where you are. Provide reliable support to develop your vocal skills.</p>
-          <button className={`px-6 py-3 mt-10 rounded-md text-white text-xl button-fx
-            ${isClicked ? 'scale-95' : ''}`}
-            onClick={handleClick}
+          <button 
+            className="px-6 py-3 mt-10 rounded-md text-white text-xl button-fx"
+            onClick={handleLearnMore}
           >
             Learn More
           </button>
