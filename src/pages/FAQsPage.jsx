@@ -27,8 +27,8 @@ const FAQsPage = () => {
   return(
     <>
       <ToTopBtn />
-      <main className="w-full h-full flex justify-center items-center my-5">
-        <div className="container flex flex-col items-center mt-10 py-15 min-h-screen overflow-y-auto rounded-lg shadow-2xl shadow-word-blue font-inter text-gray-600">
+      <main className="w-full h-full flex justify-center items-center mt-5 mb-10">
+        <div className="container flex flex-col items-center mt-10 py-15 min-h-screen overflow-y-auto rounded-lg shadow-2xl shadow-word-blue/40 font-inter text-gray-600">
           
           <div className="header flex flex-col gap-3 w-1/2 text-wrap text-center">
             <h2 className="text-5xl text-gray-700">Frequently Asked Question</h2>
