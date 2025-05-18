@@ -2,6 +2,7 @@ import { useState } from "react";
 import KurikulumSection from "./academy/KurikulumSection";
 import JadwalSection from "./academy/JadwalSection";
 import ToTopBtn from "../components/ToTopBtn";
+import Footer from "../components/Footer"
 
 const AcademyPage = () => {
   const [activeSection, setActiveSection] = useState('kurikulum')
@@ -20,7 +21,7 @@ const AcademyPage = () => {
             />
             <h2 className="text-7xl text-center tracking-[6px] uppercase">SiiChiSei</h2>
             <h2 className="text-7xl text-center tracking-wide">ACADEMY</h2>
-            <p className="py-15 text-xl text-justify leading-relaxed">
+            <p className="py-15 text-xl text-center text-pretty leading-relaxed">
               Ingin belajar bernyanyi dengan benar? <span className="font-bold text-word-blue">SiiChiSei Academy</span> akan menjadi tempat yang bagus untukmu! 
               Bahkan kalau kamu tidak memilki pengalaman bernyanyi atau berpikir bahwa kamu tidak akan pernah bisa 
               mempelajarinya. Semua orang bisa belajar bernyanyi! Saya berjanji kepadamu, bahwa jika kamu mengikuti 
@@ -88,6 +89,7 @@ const AcademyPage = () => {
 
         </div>
       </main>
+      <Footer />
     </>
   )
 }
