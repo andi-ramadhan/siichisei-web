@@ -9,12 +9,11 @@ const ServicePage = () => {
       
         {/* FIRST Container */}
         <ServiceCard 
-          img='/private-class.png'
+          img='/private-class.webp'
           imgAlt='SiiChiSei Private Class Image'
           title='SiiChiSei Private Class'
           content='Mengasah dan membentuk skill bernyanyi berdasarkan kebutuhan siswa.
-                  Mentoring dan tantangan yang disesuaikan terhadap siswa, pendekatan 
-                  khusus terkait praktik latihan yang dilakukan membuat siswa dapat cepat 
+                  Mentoring dan tantangan yang disesuaikan terhadap siswa membuat siswa dapat cepat 
                   berkembang, ditambah materi yang terfokus sesuai pilihan siswa membuat 
                   siswa dapat menguasai teknik tersebut dengan progress yang signifikan.'
           navLinkTo='/services/private-class'
@@ -23,7 +22,7 @@ const ServicePage = () => {
 
         {/* SECOND Container */}
         <ServiceCard 
-          img='/academy-class.png'
+          img='/academy-class.webp'
           imgAlt='SiiChiSei Academy Image'
           title='SiiChiSei Academy'
           content='Pembelajaran berbasis Akademi yang kurikulumnya sudah diatur dan 
