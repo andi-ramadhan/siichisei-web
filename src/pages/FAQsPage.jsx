@@ -4,6 +4,7 @@ import AccordionPanel from "../components/AccordionPanel";
 import { accordionData } from "../utils/faqsData";
 import Footer from "../components/Footer";
 import ToTopBtn from "../components/ToTopBtn";
+import { Link } from "react-router-dom";
 
 const FAQsPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -16,6 +17,7 @@ const FAQsPage = () => {
 
   const hasActive = activeIndex !== null;
 
+  // Filter FAQ data based on search query
   const filteredData = accordionData.filter((item) => {
     const childrenText = renderToStaticMarkup(item.children);
     return(
@@ -34,7 +36,7 @@ const FAQsPage = () => {
             <h2 className="text-5xl text-gray-700">Frequently Asked Question</h2>
             <p className="text-lg">
               Ada pertanyaan lain terkait SiiChiSei? Anda bisa 
-              menanyakannya <a href="#" className="text-word-blue rounded-full hover:bg-gray-700 hover:py-1 hover:px-4 hover:text-white transition-all duration-150">disini</a>
+              menanyakannya <Link to="/contact" className="text-word-blue rounded-full hover:bg-gray-700 hover:py-1 hover:px-4 hover:text-white transition-all duration-150">disini</Link>
             </p>
             {/* search bar */}
             <input
@@ -48,13 +50,13 @@ const FAQsPage = () => {
 
           {/* accordion panels */}
           <div className="accordion-container mt-10 flex flex-col gap-5 items-center">
-            {filteredData.map((item, index) => (
+            {filteredData.map((item, idx) => (
               <AccordionPanel
-                key={index}
+                key={item.id || item.title || idx}
                 title={item.title}
-                isActive={activeIndex === index}
+                isActive={activeIndex === idx}
                 hasActive={hasActive}
-                onToggle={() => togglePanel(index)}
+                onToggle={() => togglePanel(idx)}
               >
                 {item.children}
               </AccordionPanel>
