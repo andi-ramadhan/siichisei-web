@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import emailjs from '@emailjs/browser';
 import Footer from "../components/Footer";
 
+const HONEYPOT_FIELD = "bot_field"
+
 const ContactPage = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [formData, setFormData] = useState({
@@ -15,7 +17,6 @@ const ContactPage = () => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      time: new Date(),
       [id]: value,
     }));
   };
@@ -25,11 +26,10 @@ const ContactPage = () => {
     setIsClicked(true);
 
     const form = e.target;
-    const botField = form.bot_field.value;
+    const botField = form[HONEYPOT_FIELD].value;
 
     //bot check: if honeypot is filled, silently block
     if (botField) {
-      console.warn('Bot submission detected. Ignored.');
       setIsClicked(false);
       return;
     }
@@ -48,7 +48,8 @@ const ContactPage = () => {
         },
         'WlYzS4nt-5rkBbgb9' // public key
       );
-      alert('Message sent!');
+      setStatus('Message sent!');
+      setFormData({ name: '', email: '', message: '' })
     } catch (err) {
       alert('Error sending message: ' + err.message);
     } finally {
@@ -59,6 +60,7 @@ const ContactPage = () => {
   useEffect(() => {
     if (status) {
       window.alert(status);
+      setStatus("");
     }
   }, [status]);
 
@@ -73,17 +75,20 @@ const ContactPage = () => {
             {/* Contents */}
             <div className="flex flex-col gap-6">
               <h2 className="text-6xl text-word-blue font-playwrite">Contact Us</h2>
-              <p className="text-gray-blue w-[50dvh] leading-relaxed text-md">We accept any question or feedback from you! You also can directly message us on our social media.</p>
+              <p className="text-gray-blue w-[50dvh] leading-relaxed text-md">
+                We accept any question or feedback from you! You also can directly message us on our social media.
+              </p>
             </div>
 
             {/* Form */}
             <div className="flex flex-col gap-2 w-1/2">
-              <form className="space-y-6 py-4" onSubmit={handleSubmit}>
+              <form className="space-y-6 py-4" onSubmit={handleSubmit} autoComplete="off">
                 <input 
                   type="text"
-                  name="bot_field"
+                  name={HONEYPOT_FIELD}
                   style={{ display: 'none' }}
                   tabIndex={-1}
+                  autoComplete="off"
                 />
                 <input 
                   type="text" 

@@ -13,11 +13,6 @@ const TestimonialsPage = () => {
     }
   };
 
-  const handleScroll = () => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
-  };
-
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer) {
@@ -34,14 +29,13 @@ const TestimonialsPage = () => {
           </h2>
           <div 
             ref={scrollContainerRef}
-            onScroll={() => {}}
             onClick={handleOutsideClick}
             className="flex overflow-x-scroll custom-scroll-bar w-full px-10 pt-15 pb-45"
           >  
             <div className="flex gap-5">
               {testimonialData.map((data, index) => (
                 <Card 
-                  key={index} 
+                  key={data.id || index} 
                   className="flex-shrink-0"
                   studentMessage={data.studentMessage}
                   studentName={data.studentName}
