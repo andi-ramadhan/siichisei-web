@@ -6,19 +6,19 @@ const QuoteIcon = ({ className = '', fill = '#3c5966' }) => {
       version="1.1" 
       id="Layer_1" 
       xmlns="http://www.w3.org/2000/svg" 
-      xmlns:xlink="http://www.w3.org/1999/xlink" 
+      xmlnsXlink="http://www.w3.org/1999/xlink" 
       viewBox="0 0 70 70" 
       enable-background="new 0 0 70 70" 
-      xml:space="preserve"
+      xmlSpace="preserve"
     >
       <g 
         id="SVGRepo_bgCarrier" 
-        stroke-width="0"
+        strokeWidth="0"
       />
       <g 
         id="SVGRepo_tracerCarrier" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
+        strokeLinecap="round" 
+        strokeLinejoin="round"
       />
       <g 
         id="SVGRepo_iconCarrier"

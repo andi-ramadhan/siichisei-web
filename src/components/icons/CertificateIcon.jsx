@@ -5,17 +5,17 @@ const CertificateIcon = ({ className = '' }) => {
       viewBox="0 0 24 24" 
       version="1.1" 
       xmlns="http://www.w3.org/2000/svg" 
-      xmlns:xlink="http://www.w3.org/1999/xlink" 
+      xmlnsXlink="http://www.w3.org/1999/xlink" 
       fill="#266192"
     >
       <g 
         id="SVGRepo_bgCarrier" 
-        stroke-width="0" 
+        strokeWidth="0" 
       />
       <g 
         id="SVGRepo_tracerCarrier" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
+        strokeLinecap="round" 
+        strokeLinejoin="round"
       />
       <g 
         id="SVGRepo_iconCarrier"> 
@@ -23,14 +23,14 @@ const CertificateIcon = ({ className = '' }) => {
         <g 
           id="页面-1" 
           stroke="none" 
-          stroke-width="1" 
+          strokeWidth="1" 
           fill="none" 
-          fill-rule="evenodd"
+          fillRule="evenodd"
         > 
           <g 
             id="Education" 
             transform="translate(-864.000000, 0.000000)" 
-            fill-rule="nonzero"
+            fillRule="nonzero"
           > 
             <g 
               id="certificate_line" 
@@ -61,7 +61,7 @@ const CertificateIcon = ({ className = '' }) => {
                 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 
                 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" 
                 id="MingCute" 
-                fill-rule="nonzero"
+                fillRule="nonzero"
               />
               <path 
                 d="M18,10 C20.2091,10 22,11.7909 22,14 C22,15.0144 21.6224,15.9407 

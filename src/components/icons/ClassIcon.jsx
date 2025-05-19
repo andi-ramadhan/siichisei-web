@@ -5,18 +5,18 @@ const ClassIcon = ({ className = '' }) => {
       viewBox="0 0 24 24" 
       version="1.1" 
       xmlns="http://www.w3.org/2000/svg" 
-      xmlns:xlink="http://www.w3.org/1999/xlink" 
+      xmlnsXlink="http://www.w3.org/1999/xlink" 
       fill="#dda640" 
       stroke="#dda640"
     >
       <g 
         id="SVGRepo_bgCarrier" 
-        stroke-width="0"
+        strokeWidth="0"
       />
       <g 
         id="SVGRepo_tracerCarrier" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
+        strokeLinecap="round" 
+        strokeLinejoin="round"
       />
       <g 
         id="SVGRepo_iconCarrier"
@@ -26,14 +26,14 @@ const ClassIcon = ({ className = '' }) => {
         <g 
           id="🔍-Product-Icons"
           stroke="none" 
-          stroke-width="1" 
+          strokeWidth="1" 
           fill="none" 
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g 
             id="ic_fluent_class_24_regular"
             fill="#dda640" 
-            fill-rule="nonzero"
+            fillRule="nonzero"
           >
             <path 
               d="M17.25,2.00051727 C18.7687831,2.00051727 20,3.2317342 20,4.75051727 L20,19.2487649 C20,20.767548 18.7687831,21.9987649 
