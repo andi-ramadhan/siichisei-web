@@ -1,4 +1,4 @@
-export default socialLinks = [
+const socialLinks = [
   {
     href: "https://www.instagram.com/siichisei_ac",
     label: "Instagram",
@@ -61,3 +61,5 @@ export default socialLinks = [
     )
   }
 ];
+
+export default socialLinks;

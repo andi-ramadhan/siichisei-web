@@ -31,7 +31,7 @@ const Insight = () => {
           <div className="col-span-1 rounded-lg overflow-hidden">
             <figure className="flex flex-col items-center">
               <img
-                src="/voice-teacher.jpeg"
+                src="/voice-teacher.webp"
                 alt="Hasnaul Ikhtarosa, SiiChiSei Founder"
                 className="w-80 object-cover rounded-lg"
               />

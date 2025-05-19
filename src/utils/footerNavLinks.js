@@ -1,4 +1,4 @@
-export default navLinks = [
+const navLinks = [
   {
     label: "Home",
     to: "/",
@@ -42,3 +42,5 @@ export default navLinks = [
     className: "orange-footer-link h-0"
   }
 ];
+
+export default navLinks;

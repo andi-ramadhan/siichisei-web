@@ -14,7 +14,7 @@ const DiscordInsight = () => {
         </div>
         <div className="shadow-md shadow-gray-400 py-5 rounded-lg">
           <img
-            src="/discord-ss.png"
+            src="/discord-ss.webp"
             alt="Discord live teaching screenshot"
             className="w-150 p-5"
           />
@@ -25,10 +25,10 @@ const DiscordInsight = () => {
               <div className="flex flex-row text-2xl items-center">
                 {arrowRight}
                 <dt className="px-3 font-medium">
-                  {points.title}
+                  {point.title}
                 </dt>
               </div>
-              <dd className="px-10 py-2 text-lg text-wrap w-5xl">{points.desc}</dd>
+              <dd className="px-10 py-2 text-lg text-wrap w-5xl">{point.desc}</dd>
             </div>
           ))}
         </dl>

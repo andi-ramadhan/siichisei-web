@@ -6,7 +6,7 @@ export const testimonialData = [
                     disesuaikan dengan kemampuan siswa, jadi saya rasa ini cocok banget untuk pemula. 👍🏻`,
     studentName: 'Sekar',
     studentTitle: 'Rank 1 Batch 1 SCS Academy',
-    imgSrc: '/pfp-testi/pfp-sekar.jpeg'
+    imgSrc: '/pfp-testi/pfp-sekar.webp'
   },
   {
     studentMessage: `Selama saya mengikuti SiiChiSei Academy, Saya mendapat banyak pengalaman. 
@@ -14,7 +14,7 @@ export const testimonialData = [
     Saya merasa kemampuan vokal saya meningkat pesat dibandingkan sebelumnya. Terimakasih.`,
     studentName: 'Zaki',
     studentTitle: 'Rank 2 Batch 1 SCS Academy',
-    imgSrc: '/pfp-testi/pfp-zaki.jpeg'
+    imgSrc: '/pfp-testi/pfp-zaki.webp'
   },
   {
     studentMessage: `This course is beneficial and educational, especially for those who are new to it. 
@@ -23,7 +23,7 @@ export const testimonialData = [
     for many occasions.`,
     studentName: 'R.A.W',
     studentTitle: 'Rank 3 Batch 1 SCS Academy',
-    imgSrc: '/pfp-testi/pfp-raw.png'
+    imgSrc: '/pfp-testi/pfp-raw.webp'
   },
   {
     studentMessage: `Kalo selama ini saya belajar register cuma mentok di teori, di Sii Chi Sei batch 2 ini 
@@ -33,7 +33,7 @@ export const testimonialData = [
     bersama teman (baik lama ataupun baru) selama mengikuti kelas ini.. 🥰🥰`,
     studentName: 'Sekar',
     studentTitle: 'Rank 1 Batch 2 SCS Academy',
-    imgSrc: '/pfp-testi/pfp-sekar.jpeg'
+    imgSrc: '/pfp-testi/pfp-sekar.webp'
   },
   {
     studentMessage: `Tiga bulan pembelajaran di Shiichisei Academy rasanya intensif dan menyenangkan, 
@@ -47,7 +47,7 @@ export const testimonialData = [
     sampai bertemu lagi.`,
     studentName: 'Fuyumura',
     studentTitle: 'Rank 2 Batch 2 SCS Academy',
-    imgSrc: '/pfp-testi/pfp-natsu-fuyu.jpeg'
+    imgSrc: '/pfp-testi/pfp-natsu-fuyu.webp'
   },
   {
     studentMessage: `aku sangat suka kelasnya sensei Rosa, selain mudah di pahami, tiap latihan yang di 
@@ -55,6 +55,6 @@ export const testimonialData = [
     sensei bakal bantuin dan kasi penjelasan super rinci, sangat recomended buat yang mau improve tehnik vocalnya ✨`,
     studentName: 'Ashita Hikari',
     studentTitle: 'Rank 3 Batch 2 SCS Academy',
-    imgSrc: '/pfp-testi/pfp-ashita.jpeg'
+    imgSrc: '/pfp-testi/pfp-ashita.webp'
   },
 ];

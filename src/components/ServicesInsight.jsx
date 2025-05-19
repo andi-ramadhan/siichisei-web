@@ -7,12 +7,12 @@ const ServicesInsight = () => {
       {/* BG Logo */}
       <div className="absolute inset-0 w-full h-full -top-10" aria-hidden="true">
         <img 
-          src="/logo-black.png"
+          src="/logo-black.webp"
           className="absolute w-[40rem] -left-1/5 opacity-20"
           alt="Background Logo"
         />
         <img 
-          src="/logo-black.png"
+          src="/logo-black.webp"
           className="absolute w-[40rem] -right-1/5 opacity-20"
           alt="Background Logo"
         />
@@ -24,7 +24,7 @@ const ServicesInsight = () => {
           
           {/* Service Insight Cards */}
           {services.map(service => (
-            <div className="content-container bg-graybase rounded-lg p-5 shadow-lg hover:shadow-2xl transition-shadow ">
+            <div key={service.id} className="content-container bg-graybase rounded-lg p-5 shadow-lg hover:shadow-2xl transition-shadow ">
               <div className="w-full h-full flex flex-row gap-10 content-card p-5">
                 <div className="flex flex-col items-center my-auto card-header text-4xl">
                   <p className="text-fit tracking-[0.08em]">{service.title[0]}</p>

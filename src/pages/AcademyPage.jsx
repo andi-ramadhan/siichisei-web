@@ -16,7 +16,7 @@ const AcademyPage = () => {
           {/* WELCOME */}
           <div id="academy-welcome" className="flex flex-col items-center h-full pb-10">
             <img 
-              src="/logo-png.png"
+              src="/logo-png.webp"
               className="w-80"
             />
             <h2 className="text-7xl text-center tracking-[6px] uppercase">SiiChiSei</h2>

@@ -15,7 +15,7 @@ const JadwalSection = () => {
               {/* <!-- Item 1 --> */}
               <div className="w-full flex-shrink-0">
                 <img 
-                  src="/calendar/april-2025.png" 
+                  src="/calendar/april-2025.webp" 
                   className="block w-full" 
                   alt="April Calendar" 
                 />
@@ -23,7 +23,7 @@ const JadwalSection = () => {
               {/* <!-- Item 2 --> */}
               <div className="w-full flex-shrink-0">
                 <img 
-                  src="/calendar/may-2025.png" 
+                  src="/calendar/may-2025.webp" 
                   className="block w-full" 
                   alt="May Calendar" 
                 />
@@ -31,7 +31,7 @@ const JadwalSection = () => {
               {/* <!-- Item 3 --> */}
               <div className="w-full flex-shrink-0">
                 <img 
-                  src="/calendar/june-2025.png" 
+                  src="/calendar/june-2025.webp" 
                   className="block w-full" 
                   alt="June Calendar" 
                 />
@@ -39,7 +39,7 @@ const JadwalSection = () => {
               {/* <!-- Item 4 --> */}
               <div className="w-full flex-shrink-0">
                 <img 
-                  src="/calendar/july-2025.png" 
+                  src="/calendar/july-2025.webp" 
                   className="block w-full" 
                   alt="July Calendar" 
                 />

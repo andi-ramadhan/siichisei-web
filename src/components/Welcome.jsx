@@ -13,12 +13,12 @@ const Welcome = () => {
       <div className="flex flex-col justify-center items-center text-center overflow-hidden font-inter">
         <img
           className="bg-cover h-full w-full relative" 
-          src={'bg-cutted.jpg'}
+          src={'bg-cutted.webp'}
         />
         <div className="absolute top-25">
           <img
             className="size-100 mx-auto" 
-            src={'logo-png.png'}
+            src={'logo-png.webp'}
           />
           <h2 className="text-gray-700 text-5xl mb-10 font-semibold">
             Find your truly way of Vocal Journey

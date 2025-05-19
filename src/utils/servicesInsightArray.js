@@ -1,4 +1,4 @@
-export default servicesInsightArray = [
+const servicesInsightArray = [
   {
     id: "academy",
     title: ["SiiChiSei", "Academy"],
@@ -12,3 +12,5 @@ export default servicesInsightArray = [
     link: "/services/private-class"
   }
 ];
+
+export default servicesInsightArray;
