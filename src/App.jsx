@@ -1,4 +1,3 @@
-import { Routes, Route } from 'react-router-dom'
 import './styles/index.css';
 import Header from './components/Header';
 import SiteRoute from './routes/siteRoute';
