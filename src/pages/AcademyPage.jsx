@@ -3,6 +3,7 @@ import KurikulumSection from "./academy/KurikulumSection";
 import JadwalSection from "./academy/JadwalSection";
 import ToTopBtn from "../components/ToTopBtn";
 import Footer from "../components/Footer"
+import { onGoingCourseTabs, onGoingCourseTopics } from "../utils/academyPageArrays";
 
 const AcademyPage = () => {
   const [activeSection, setActiveSection] = useState('kurikulum')
@@ -18,6 +19,7 @@ const AcademyPage = () => {
             <img 
               src="/logo-png.webp"
               className="w-80"
+              alt="SiiChiSei Logo"
             />
             <h2 className="text-7xl text-center tracking-[6px] uppercase">SiiChiSei</h2>
             <h2 className="text-7xl text-center tracking-wide">ACADEMY</h2>
@@ -45,14 +47,8 @@ const AcademyPage = () => {
               Kamu akan mendapatkan pelajaran teknik vibrato, yaitu:
             </p>
             <ul className="text-word-white-orange text-lg py-10 pl-5 gap-4 flex flex-col">
-              {[
-                "Vibrato \"Alami\"",
-                "Vibrato Laring",
-                "Variasi Penempatan Vibrato",
-                "Perbedaan Kecepatan Vibrato",
-                "Vibrato Setiap Register Vokal",
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-4">
+              {onGoingCourseTopics.map((item, index) => (
+                <li key={item} className="flex items-center gap-4">
                   <div className="flex items-center justify-center bg-white text-word-blue font-bold size-9 text-lg rounded-full shadow-md shadow-gray-600">
                     {index + 1}
                   </div>
@@ -62,30 +58,25 @@ const AcademyPage = () => {
             </ul>
 
             <div className="absolute w-full bottom-0 left-1/2 transform -translate-x-1/2 text-gray-blue flex justify-center gap-3">
-            <a
-              href="#kurikulum"
-              className={`link-container ${activeSection === 'kurikulum' ? 'bg-word-orange' : 'bg-[#a37a2d] text-gray-blue/80'} w-2/5 h-10 text-center items-center flex justify-center rounded-t-lg text-xl uppercase tracking-wider font-bold
-              transition-all duration-200`}
-              onClick={() => setActiveSection('kurikulum')}
-            >
-              Kurikulum
-            </a>
-            <a
-              href="#jadwal"
-              className={`link-container ${activeSection === 'jadwal' ? 'bg-word-orange' : 'bg-[#a37a2d] text-gray-blue/80'} w-2/5 h-10 text-center items-center flex justify-center rounded-t-lg text-xl uppercase tracking-wider font-bold
-              transition-all duration-200`}
-              onClick={() => setActiveSection('jadwal')}
-            >
-              Jadwal
-            </a>
-            </div>
-          
+              {onGoingCourseTabs.map(tab => (
+                <a
+                  key={tab.id}
+                  href={`#${tab.id}`}
+                  className={`link-container ${activeSection === tab.id ? 'bg-word-orange' : 'bg-[#a37a2d] text-gray-blue/80'} 
+                  w-2/5 h-10 text-center items-center flex justify-center rounded-t-lg text-xl uppercase tracking-wider font-bold transition-all duration-200`}
+                  onClick={() => setActiveSection(tab.id)}
+                >
+                  {tab.label}
+                </a>
+              ))}
+            </div>          
           </div>
-            {activeSection === 'kurikulum' ? (
-              <KurikulumSection />
-            ) : (
-              <JadwalSection />
-            )}
+
+          {activeSection === 'kurikulum' ? (
+            <KurikulumSection />
+          ) : (
+            <JadwalSection />
+          )}
 
         </div>
       </main>
