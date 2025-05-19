@@ -11,9 +11,8 @@ const AcademyPage = () => {
   return(
     <>
       <ToTopBtn />
-      <main className="w-full h-full flex flex-col justify-center items-center my-5 font-inter">
+      <main className="w-full h-full flex flex-col justify-center items-center py-5 font-inter bg-gradient-to-br from-orange-100 to-sky-100">
         <div className="container flex flex-col items-center py-10 px-70 min-h-screen overflow-y-auto rounded-lg font-inter text-gray-600">
-          
           {/* WELCOME */}
           <div id="academy-welcome" className="flex flex-col items-center h-full pb-10">
             <img 
