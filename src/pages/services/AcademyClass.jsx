@@ -1,9 +1,10 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import CloseIcon from "../../components/icons/CloseIcon";
 import CheckIcon from "../../components/icons/CheckIcon";
-import { useState, useEffect, useRef } from "react";
-import ClassIcon from "../../components/icons/ClassIcon";
-import { Link } from "react-router-dom";
+import { academyClassSidebar } from "../../utils/servicesSidebarData";
+import { academyClassContent } from "../../utils/servicesContentData";
+import priceCards from "../../utils/servicesPriceCardData";
 
 const AcademyClass = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -71,157 +72,98 @@ const AcademyClass = () => {
             {/* SIDEBAR */}
             <aside className="sticky top-0 left-0 w-1/7 flex flex-col gap-7 text-md text-gray-800 px-5 justify-start pt-10">
               <div className="flex flex-col gap-4 text-white uppercase">
-                <Link
-                  to="/services/academy-class#class-status"
-                  className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
-                >
-                  Class Status
-                </Link>
-                <Link 
-                  to="/services/academy-class#prices"
-                  className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
-                >
-                  Prices
-                </Link>
+                {academyClassSidebar.map(link => (
+                  <Link
+                    key={link.text}
+                    to={link.to}
+                    className="rounded-lg bg-word-blue text-center py-2 hover:bg-dark-blue transition-all duration-150"
+                  >
+                    {link.text}
+                  </Link>
+                ))}
               </div>
             </aside>
 
             {/* CONTENTS */}
             <div ref={contentRef} className="flex flex-col gap-35 w-6/7 overflow-y-auto">
-
-              {/* CONTENT 1 */}
-              <div id="class-status" className="flex flex-col gap-2 h-full py-50 w-full justify-center bg-gray-blue">
-                <div className="px-30 relative">
-                <ClassIcon className="absolute top-0 right-10 w-120 opacity-30 z-1" />
-                  <h3 className="font-semibold text-5xl mb-4 text-word-orange uppercase">Class status</h3>
-                  <div className="flex flex-col gap-5 text-lg text-word-white-orange">
-                    <p className="font-semibold text-2xl">Past Academy Class:</p>
-                    <p className="text-justify leading-relaxed">
-                      <ol className="flex flex-col pl-5 gap-2 list-disc">
-                        <li>SiiChiSei Academy Batch 1: Komponen Anatomi Vokal (3 bulan)</li>
-                        <li>SiiChiSei Academy Batch 2: Register Vokal (3 bulan)</li>
-                        <li className="text-word-orange font-semibold">SiiChiSei Academy Batch 3: Vibrato (3 bulan) - On Going</li>
-                      </ol>
-                    </p>
-                    <p className="font-semibold text-2xl">Available Academy Class:</p>
-                    <p className="text-justify leading-relaxed italic">
-                      Coming Soon
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* CONTENT 2 */}
-              <div id="prices" className="flex flex-col gap-2 h-full py-50 justify-center">
-                <div className="px-30">
-                  <div className="flex flex-row gap-10 h-[50vh] justify-center items-center text-lg text-gray-800">
-                    
-                    <div className="card flex flex-col h-full w-[60dvh] rounded-xl p-10 transition-all bg-word-orange duration-300 hover:scale-102">
-                      <p className="text-2xl font-semibold uppercase mb-10 text-gray-blue">Monthly</p>
-                      <h4 className="mb-5">
-                        <span className="text-4xl">IDR 200.000</span>/month
-                      </h4>
-                      <button
-                        onClick={handleShowPopup}
-                        className=" text-center bg-gray-blue hover:bg-dark-blue transition-all duration-200 text-white rounded-md py-2 cursor-pointer font-semibold"
-                      >
-                          Contact us
-                      </button>
-
-                      <div className="my-5 flex flex-col gap-4">
-                        <p><span className="text-xl">Benefit</span></p>
-                        <ul className="flex flex-col gap-2">
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-gray-blue" />
-                            Kelas 4x pertemuan
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-gray-blue" />
-                            Mentoring 24x pertemuan
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-gray-blue" />
-                            Free konsultasi selama berada di kelas
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-gray-blue" />
-                            File PPT materi
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    <div className="card2 flex flex-col h-full w-[60dvh] rounded-xl p-10 bg-gray-blue transition-all duration-300 hover:scale-102">
-                      <p className="text-2xl font-semibold uppercase mb-10 text-word-orange">FULL-CLASS</p>
-                      <h4 className="mb-5 text-word-white-orange text-4xl">
-                        IDR 550.000
-                      </h4>
-                      <button
-                        onClick={handleShowPopup} 
-                        className="bg-word-orange text-black rounded-md py-2 cursor-pointer font-semibold
-                                    hover:bg-bg-base-orange transition-all duration-200"
-                      >
-                        Contact us
-                      </button>
-                      <div className="my-5 flex flex-col gap-4 text-word-white-orange">
-                        <p><span className="text-xl">Benefit</span></p>
-                        <ul className="flex flex-col gap-2">
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-orange" />
-                            Kelas 12x pertemuan
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-orange" />
-                            Mentoring 72x pertemuan
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-orange" />
-                            Free konsultasi selama berada di kelas
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckIcon className="w-6 h-6 text-word-orange" />
-                            File PPT materi
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* POPUP */}
-                    {showPopup && (
-                      <div 
-                        id="popup" 
-                        className="fixed top-0 bottom-0 right-0 bg-black/30 w-full flex justify-center items-center z-70 font-inter"
-                        onClick={handleHidePopup}
-                      >
-                        <div 
-                          className={`
-                            w-[30%] bg-white rounded-lg p-8 text-gray-blue
-                            transition-all duration-200
-                            ${popupVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}
-                          `}
-                          onClick={e => e.stopPropagation()}
-                        >
-                          <span className="flex justify-between items-center pb-3">
-                            <h2 className="text-2xl font-semibold text-word-blue">Mohon Maaf</h2>
-                            <button 
-                              className="text-3xl font-extrabold hover:text-word-blue transition-colors duration-200 cursor-pointer"
-                              onClick={handleHidePopup}
-                              aria-label="Close"
+              {academyClassContent.map(section => (
+                <div
+                  key={section.id}
+                  id={section.id}
+                  className={section.sectionClass}
+                >
+                  <div className="px-30 relative">
+                    {section.icon}
+                    <h3 className={section.titleClass}>{section.title}</h3>
+                    {section.id === "prices" ? (
+                      <div className="flex flex-row gap-10 h-[50dvh] justify-center items-center text-lg">
+                        {priceCards.map((card, idx) => (
+                          <div
+                            key={card.type}
+                            className={`flex flex-col h-full w-[60dvh] rounded-xl p-10 transition-all duration-300 hover:scale-102 ${card.cardClass}`}
+                          >
+                            <p className="text-2xl font-semibold uppercase mb-10">{card.type}</p>
+                            <h4 className="mb-5">
+                              <span className="text-4xl">{card.price}</span>{card.priceSuffix}
+                            </h4>
+                            <button
+                              onClick={handleShowPopup}
+                              className={card.btnClass}
                             >
-                              &times;
+                              Contact us
                             </button>
-                          </span>
-                          <p className="leading-relaxed text-pretty">
-                            Mohon maaf, pendaftaran siswa baru SiiChiSei Academy belum dibuka kembali.
-                            Silahkan kunjungi media sosial SiiChiSei untuk informasi lebih lanjut!
-                          </p>
-                        </div>
+                            <div className="my-5 flex flex-col gap-4">
+                              <p><span className="text-xl">Benefit</span></p>
+                              <ul className="flex flex-col gap-2">
+                                {card.benefits.map(benefit => (
+                                  <li key={benefit} className="flex items-center gap-2">
+                                    <CheckIcon className={`w-6 h-6 ${card.iconColor}`} />
+                                    {benefit}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ))}
+                        {/* POPUP */}
+                        {showPopup && (
+                          <div 
+                            id="popup" 
+                            className="fixed top-0 bottom-0 right-0 bg-black/30 w-full flex justify-center items-center z-70 font-inter"
+                            onClick={handleHidePopup}
+                          >
+                            <div 
+                              className={`
+                                w-[30%] bg-white rounded-lg p-8 text-gray-blue
+                                transition-all duration-200
+                                ${popupVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}
+                              `}
+                              onClick={e => e.stopPropagation()}
+                            >
+                              <span className="flex justify-between items-center pb-3">
+                                <h2 className="text-2xl font-semibold text-word-blue">Mohon Maaf</h2>
+                                <button 
+                                  className="text-3xl font-extrabold hover:text-word-blue transition-colors duration-200 cursor-pointer"
+                                  onClick={handleHidePopup}
+                                  aria-label="Close"
+                                >
+                                  &times;
+                                </button>
+                              </span>
+                              <p className="leading-relaxed text-pretty">
+                                Mohon maaf, pendaftaran siswa baru SiiChiSei Academy belum dibuka kembali.
+                                Silahkan kunjungi media sosial SiiChiSei untuk informasi lebih lanjut!
+                              </p>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}                  
+                    ) : (
+                      section.content
+                    )}
                   </div>
                 </div>
-              </div>
-              
+              ))}
             </div>
 
           </div>
